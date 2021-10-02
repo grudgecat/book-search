@@ -1,4 +1,4 @@
-const { Thought } = require('../models');
+const {  } = require('../models');
 
 const resolvers = {
   Query: {
