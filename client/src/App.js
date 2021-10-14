@@ -4,6 +4,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
+// import { setContext } from '@apollo/client/link/context'; 
 
 //TODO: Create an Apollo Provider to make every request work with the Apollo Server.
 const client = new ApolloClient({
