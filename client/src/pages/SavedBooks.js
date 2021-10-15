@@ -1,20 +1,10 @@
 import React from 'react';
-// import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
-
-// import { getMe, deleteBook } from '../utils/API';
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 import { REMOVE_BOOK } from '../utils/mutations';
 import { GET_ME} from '../utils/queries';
 import { useQuery, useMutation } from '@apollo/client';
-// import { useParams } from 'react-router-dom'; 
-
-
-// * Use the `useMutation()` Hook to execute the `REMOVE_BOOK` mutation in the `handleDeleteBook()` function instead of
-//      the `deleteBook()` function that's imported from `API` file. (Make sure you keep the `removeBookId()` function in place!)
-// * `SignupForm.js`: Replace the `addUser()` functionality imported from the `API` file with the `ADD_USER` mutation functionality.
-// * `LoginForm.js`: Replace the `loginUser()` functionality imported from the `API` file with the `LOGIN_USER` mutation functionality.
 
 const SavedBooks = () => {
   const { loading, data } = useQuery(GET_ME);
@@ -34,18 +24,15 @@ const SavedBooks = () => {
       return false;
     }
 
-    // try {
-
+    try {
       const { user } = await removeBook({
         variables: { bookId },
       });
-
       // upon success, remove book's id from localStorage
       removeBookId(bookId);
-
-        // } catch (err) {
-    //   console.error(err);
-    // }
+        } catch (err) {
+      console.error(err);
+    }
   };
 console.log(loading);
   if (loading) {
